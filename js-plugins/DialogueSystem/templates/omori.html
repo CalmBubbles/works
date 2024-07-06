@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+        <meta name="theme-color" content="white"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+        
+        
+        <!------------SEO-->
+        <!--Type--><meta property="og:type" content="website"/>
+        <!--Title--><meta property="og:title" content="OMORI | DialogueSystem.js Templates"/>
+        <!--URL--><meta property="og:url" content="https://calmbubbles.github.io/works/js-plugins/DialogueSystem/templates/omori"/>
+        <!--Locale--><meta property="og:locale" content="en_US"/>
+        <!--Keywords--><meta name="keywords" content="CalmBubbles, documentation, manual, JavaScript, html, js, DialogueSystem, dialogue, system">
+        
+        <!-------Description-->
+        <meta property="og:description" content="A template based from the game &quot;OMORI&quot;"/>
+        <meta name="description" content="A template based from the game &quot;OMORI&quot;"/>
+        
+        <!-------Image-->
+        <meta property="og:image" content="https://calmbubbles.github.io/img/js-plugins.png"/>
+        <!--Width--><meta property="og:image:width" content="440"/>
+        <!--Height--><meta property="og:image:height" content="440"/>
+        <!--Alt--><meta property="og:image:alt" content="OMORI | DialogueSystem.js Templates"/>
+        
+        <!-------Twitter Card-->
+        <!--Type--><meta name="twitter:card" content="summary"/>
+        <!--Title--><meta name="twitter:title" content="OMORI | DialogueSystem.js Templates"/>
+        <!--Description--><meta name="twitter:description" content="A template based from the game &quot;OMORI&quot;"/>
+        <!--Image--><meta name="twitter:image" content="https://calmbubbles.github.io/img/js-plugins.png"/>
+        
+        
+        <!------------Site-->
+        <!--Title--><title>OMORI | DialogueSystem.js Templates</title>
+        <!--URL--><link rel="canonical" href="https://calmbubbles.github.io/works/js-plugins/DialogueSystem/templates/omori"/>
+        
+        <!-------Favicon-->
+        <link rel="icon" sizes="256x256" href="/icons/js-plugins.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" href="/icons/js-plugins.ico" type="image/x-icon"/>
+        
+        <!------------Styles-->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="/styles/main.css" rel="stylesheet" type="text/css">
+        <link href="/styles/rules.css" rel="stylesheet" type="text/css">
+        <style>
+
+#cursor
+{
+    background: rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    width: 32px;
+    height: 16px;
+    position: relative;
+    padding: 6px;
+    vertical-align: bottom;
+    margin-left: 4px;
+}
+
+
+#cursor img
+{
+    width: 32px;
+    position: absolute;
+    animation: alternate cursor 0.5s linear infinite;
+    pointer-events: none;
+}
+
+#font1
+{
+    font-family: "OMORIGAME";
+    font-size: 25px;
+    font-weight: normal;
+    display: inline-block;
+    user-select: none !important;
+}
+
+#font2
+{
+    font-family: "OMORIGAME2";
+    font-size: 25px;
+    font-weight: normal;
+    display: inline-block;
+    user-select: none !important;
+}
+
+#wave
+{
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: normal;
+    display: inline-block;
+    user-select: none !important;
+}
+
+#download-btn
+{
+    padding: 15px 20px;
+}
+
+@keyframes cursor
+{
+    from { left: 3.5px; }
+
+    to { left: 9px; }
+}
+
+@font-face
+{
+    font-family: "OMORIGAME";
+    src: url("/dialogue-templates/omori/fonts/OMORI_GAME2.ttf");
+}
+
+@font-face
+{
+    font-family: "OMORIGAME2";
+    src: url("/dialogue-templates/omori/fonts/OMORI_GAME.ttf");
+}
+
+
+        </style>
+    </head>
+    
+    <body data-site="4" hide-menu="1">
+        <noscript><div>This site requires the use of JavaScript</div></noscript>
+        
+        <hr class="fadeObject">
+        
+        <header>
+            <div id="btnMenu"><img class="unselectable" src="/img/spr_btnMenu.png" alt="Menu"></div>
+            <a id="icon" class="icon" href="/works/js-plugins" rel="noreferrer noopener"><img class="unselectable" src="/img/js-plugins.png" alt="js-plugins"></a>
+            <a id="icon_freeaspect" class="icon" href="/works/js-plugins" rel="noreferrer noopener"><img class="unselectable" src="/img/js-plugins_freeaspect.png" alt="js-plugins"></a>
+            <a id="sideicon" class="icon" href="/" rel="noreferrer noopener"><img class="unselectable" src="/img/icon.png" alt="CalmBubbles"></a>
+        </header>
+        
+        <div id="menuSection"></div>
+        
+        <main>
+            <h1>OMORI</h1>
+
+            <div class="doc-info">
+                <a href="https://omori-game.com" target="_blank">Original game</a> by <a href="https://www.omocat-shop.com/pages/about" target="_blank">OMOCAT, LLC</a>
+            </div>
+
+            
+            <h2>Preview</h2>
+
+            <div class="codeoutputframe" data-src="/docs-examples/js-plugins/DialogueSystem/templates/omori?s=..%2F..%2Ftemp-prev/omori" data-width="full" data-relHeight="42" data-refreshable="true"></div><br>
+
+
+            <h2>Additional Features</h2>
+
+            <blockquote>
+                • Customized box enabling method (please read the README file, you need it)<br>
+                • Cursor indicator <span id="cursor"><img src="/dialogue-templates/omori/img/cursor_menu.png"></span><br>
+                • Randomized dialogue audio pitch<br>
+                • Font switching between <code id="font1">OMORIGAME</code> and <code id="font2">OMORIGAME2</code><br>
+                • Screen shake; <span id="shake" class="textbtn">Test</span><br>
+                • Name section<br>
+                • Text wave animation; <code id="wave"></code>
+            </blockquote><br>
+
+
+            <h2>Doesn't Include</h2>
+
+            <blockquote>
+                • Other text animations
+            </blockquote><br>
+
+
+            <h2 id="download-btn" class="textbtn">Download</h2><br>
+
+
+            <h2>Credits & Licenses</h2>
+            
+            <blockquote>
+                <h3>
+                    This template is under a <a href="/dialogue-templates/omori/LICENSE.md" target="_blank">Non-commercial License</a>
+                    <br><br>
+                    Original game, <a href="https://omori-game.com" target="_blank">OMORI</a> by <a href="https://www.omocat-shop.com/pages/about" target="_blank">OMOCAT, LLC</a>
+                </h3>
+            </blockquote><br>
+
+            <h3>Version: 1f</h3>
+			<h3>Source Code: <a href="https://github.com/calmbubbles/dialogue-templates#omori" target="_blank">github.com/calmbubbles/dialogue-templates#omori</a></h3>
+            <h3>Last Updated: July 6, 2024</h3>
+        </main>
+        
+        <script src="/js/main.js" type="text/javascript"></script>
+        <script src="/js/CodeOutputs.js" type="text/javascript"></script>
+        <script src="/js/JSZip/main.js" type="text/javascript"></script>
+        <script src="/js/FileSaver/main.js" type="text/javascript"></script>
+        <script>
+
+function ShakeScreen (duration, intensity)
+{
+    let done = false;
+    let time = 0;
+
+    Loop.Append(() => {
+        if (done) return;
+
+        if (time >= duration)
+        {
+            document.body.style.transform = "";
+
+            done = true;
+
+            return;
+        }
+
+        const pos = (Math.random() * 2 - 1) * (intensity * ((duration - time) / duration * 0.25));
+
+        document.body.style.transform = `translateY(${pos}%)`;
+
+        time += Loop.deltaTime;
+    }, null, () => done);
+}
+
+shake.onclick = () => ShakeScreen(0.5, 40);
+
+const funnyText = "Never gonna give you up";
+let waveChar = [];
+
+for (let i = 0; i < funnyText.length; i++)
+{
+    const span = document.createElement("span");
+
+    span.style.display = "inline-block";
+    span.style.whiteSpace = "pre-wrap";
+
+    span.append(funnyText[i]);
+    wave.append(span);
+
+    waveChar.push(span);
+}
+
+Loop.Append(() => {
+    for (let i = 0; i < waveChar.length; i++)
+    {
+        const pos = 12 * Math.sin(10 * Loop.time + 0.4 * i);
+
+        waveChar[i].style.transform = `translateY(${pos}%)`;
+    }
+});
+
+const dir = "/dialogue-templates/omori";
+
+async function AddFile (zip, src)
+{
+    const blobRequest = await fetch(`${dir}/${src}`);
+    const blobData = await blobRequest.blob();
+
+    zip.file(src, blobData);
+}
+
+const donwloadBtn = document.querySelector("#download-btn");
+donwloadBtn.onclick = async () => {
+    donwloadBtn.setAttribute("clicked", 1);
+    donwloadBtn.textContent = "Downloading...";
+
+    const zip = new JSZip();
+
+    zip.folder("audio");
+	await AddFile(zip, "audio/[SE]-TEXT.ogg");
+	zip.folder("fonts");
+	await AddFile(zip, "fonts/OMORI_GAME.ttf");
+	await AddFile(zip, "fonts/OMORI_GAME2.ttf");
+	zip.folder("img");
+	await AddFile(zip, "img/cursor_menu.png");
+	zip.folder("img/faces");
+	zip.folder("img/faces/aubrey");
+	await AddFile(zip, "img/faces/aubrey/0.png");
+	await AddFile(zip, "img/faces/aubrey/1.png");
+	await AddFile(zip, "img/faces/aubrey/10.png");
+	await AddFile(zip, "img/faces/aubrey/11.png");
+	await AddFile(zip, "img/faces/aubrey/12.png");
+	await AddFile(zip, "img/faces/aubrey/13.png");
+	await AddFile(zip, "img/faces/aubrey/14.png");
+	await AddFile(zip, "img/faces/aubrey/15.png");
+	await AddFile(zip, "img/faces/aubrey/16.png");
+	await AddFile(zip, "img/faces/aubrey/17.png");
+	await AddFile(zip, "img/faces/aubrey/18.png");
+	await AddFile(zip, "img/faces/aubrey/19.png");
+	await AddFile(zip, "img/faces/aubrey/2.png");
+	await AddFile(zip, "img/faces/aubrey/20.png");
+	await AddFile(zip, "img/faces/aubrey/21.png");
+	await AddFile(zip, "img/faces/aubrey/22.png");
+	await AddFile(zip, "img/faces/aubrey/23.png");
+	await AddFile(zip, "img/faces/aubrey/24.png");
+	await AddFile(zip, "img/faces/aubrey/25.png");
+	await AddFile(zip, "img/faces/aubrey/26.png");
+	await AddFile(zip, "img/faces/aubrey/27.png");
+	await AddFile(zip, "img/faces/aubrey/28.png");
+	await AddFile(zip, "img/faces/aubrey/29.png");
+	await AddFile(zip, "img/faces/aubrey/3.png");
+	await AddFile(zip, "img/faces/aubrey/30.png");
+	await AddFile(zip, "img/faces/aubrey/31.png");
+	await AddFile(zip, "img/faces/aubrey/32.png");
+	await AddFile(zip, "img/faces/aubrey/33.png");
+	await AddFile(zip, "img/faces/aubrey/34.png");
+	await AddFile(zip, "img/faces/aubrey/35.png");
+	await AddFile(zip, "img/faces/aubrey/36.png");
+	await AddFile(zip, "img/faces/aubrey/37.png");
+	await AddFile(zip, "img/faces/aubrey/38.png");
+	await AddFile(zip, "img/faces/aubrey/39.png");
+	await AddFile(zip, "img/faces/aubrey/4.png");
+	await AddFile(zip, "img/faces/aubrey/5.png");
+	await AddFile(zip, "img/faces/aubrey/6.png");
+	await AddFile(zip, "img/faces/aubrey/7.png");
+	await AddFile(zip, "img/faces/aubrey/8.png");
+	await AddFile(zip, "img/faces/aubrey/9.png");
+	zip.folder("img/faces/basil");
+	await AddFile(zip, "img/faces/basil/0.png");
+	await AddFile(zip, "img/faces/basil/1.png");
+	await AddFile(zip, "img/faces/basil/10.png");
+	await AddFile(zip, "img/faces/basil/11.png");
+	await AddFile(zip, "img/faces/basil/12.png");
+	await AddFile(zip, "img/faces/basil/13.png");
+	await AddFile(zip, "img/faces/basil/14.png");
+	await AddFile(zip, "img/faces/basil/15.png");
+	await AddFile(zip, "img/faces/basil/16.png");
+	await AddFile(zip, "img/faces/basil/17.png");
+	await AddFile(zip, "img/faces/basil/18.png");
+	await AddFile(zip, "img/faces/basil/19.png");
+	await AddFile(zip, "img/faces/basil/2.png");
+	await AddFile(zip, "img/faces/basil/20.png");
+	await AddFile(zip, "img/faces/basil/21.png");
+	await AddFile(zip, "img/faces/basil/22.png");
+	await AddFile(zip, "img/faces/basil/23.png");
+	await AddFile(zip, "img/faces/basil/24.png");
+	await AddFile(zip, "img/faces/basil/25.png");
+	await AddFile(zip, "img/faces/basil/26.png");
+	await AddFile(zip, "img/faces/basil/27.png");
+	await AddFile(zip, "img/faces/basil/28.png");
+	await AddFile(zip, "img/faces/basil/29.png");
+	await AddFile(zip, "img/faces/basil/3.png");
+	await AddFile(zip, "img/faces/basil/30.png");
+	await AddFile(zip, "img/faces/basil/31.png");
+	await AddFile(zip, "img/faces/basil/32.png");
+	await AddFile(zip, "img/faces/basil/33.png");
+	await AddFile(zip, "img/faces/basil/34.png");
+	await AddFile(zip, "img/faces/basil/35.png");
+	await AddFile(zip, "img/faces/basil/36.png");
+	await AddFile(zip, "img/faces/basil/37.png");
+	await AddFile(zip, "img/faces/basil/38.png");
+	await AddFile(zip, "img/faces/basil/39.png");
+	await AddFile(zip, "img/faces/basil/4.png");
+	await AddFile(zip, "img/faces/basil/40.png");
+	await AddFile(zip, "img/faces/basil/41.png");
+	await AddFile(zip, "img/faces/basil/42.png");
+	await AddFile(zip, "img/faces/basil/43.png");
+	await AddFile(zip, "img/faces/basil/44.png");
+	await AddFile(zip, "img/faces/basil/45.png");
+	await AddFile(zip, "img/faces/basil/46.png");
+	await AddFile(zip, "img/faces/basil/47.png");
+	await AddFile(zip, "img/faces/basil/48.png");
+	await AddFile(zip, "img/faces/basil/49.png");
+	await AddFile(zip, "img/faces/basil/5.png");
+	await AddFile(zip, "img/faces/basil/50.png");
+	await AddFile(zip, "img/faces/basil/51.png");
+	await AddFile(zip, "img/faces/basil/52.png");
+	await AddFile(zip, "img/faces/basil/53.png");
+	await AddFile(zip, "img/faces/basil/54.png");
+	await AddFile(zip, "img/faces/basil/55.png");
+	await AddFile(zip, "img/faces/basil/56.png");
+	await AddFile(zip, "img/faces/basil/57.png");
+	await AddFile(zip, "img/faces/basil/58.png");
+	await AddFile(zip, "img/faces/basil/59.png");
+	await AddFile(zip, "img/faces/basil/6.png");
+	await AddFile(zip, "img/faces/basil/60.png");
+	await AddFile(zip, "img/faces/basil/61.png");
+	await AddFile(zip, "img/faces/basil/62.png");
+	await AddFile(zip, "img/faces/basil/63.png");
+	await AddFile(zip, "img/faces/basil/64.png");
+	await AddFile(zip, "img/faces/basil/65.png");
+	await AddFile(zip, "img/faces/basil/66.png");
+	await AddFile(zip, "img/faces/basil/67.png");
+	await AddFile(zip, "img/faces/basil/68.png");
+	await AddFile(zip, "img/faces/basil/7.png");
+	await AddFile(zip, "img/faces/basil/8.png");
+	await AddFile(zip, "img/faces/basil/9.png");
+	await AddFile(zip, "img/faces/blank.png");
+	await AddFile(zip, "img/faces/hector.png");
+	zip.folder("img/faces/hero");
+	await AddFile(zip, "img/faces/hero/0.png");
+	await AddFile(zip, "img/faces/hero/1.png");
+	await AddFile(zip, "img/faces/hero/10.png");
+	await AddFile(zip, "img/faces/hero/11.png");
+	await AddFile(zip, "img/faces/hero/12.png");
+	await AddFile(zip, "img/faces/hero/13.png");
+	await AddFile(zip, "img/faces/hero/14.png");
+	await AddFile(zip, "img/faces/hero/15.png");
+	await AddFile(zip, "img/faces/hero/16.png");
+	await AddFile(zip, "img/faces/hero/17.png");
+	await AddFile(zip, "img/faces/hero/18.png");
+	await AddFile(zip, "img/faces/hero/19.png");
+	await AddFile(zip, "img/faces/hero/2.png");
+	await AddFile(zip, "img/faces/hero/20.png");
+	await AddFile(zip, "img/faces/hero/21.png");
+	await AddFile(zip, "img/faces/hero/22.png");
+	await AddFile(zip, "img/faces/hero/23.png");
+	await AddFile(zip, "img/faces/hero/24.png");
+	await AddFile(zip, "img/faces/hero/25.png");
+	await AddFile(zip, "img/faces/hero/26.png");
+	await AddFile(zip, "img/faces/hero/27.png");
+	await AddFile(zip, "img/faces/hero/28.png");
+	await AddFile(zip, "img/faces/hero/29.png");
+	await AddFile(zip, "img/faces/hero/3.png");
+	await AddFile(zip, "img/faces/hero/30.png");
+	await AddFile(zip, "img/faces/hero/31.png");
+	await AddFile(zip, "img/faces/hero/32.png");
+	await AddFile(zip, "img/faces/hero/33.png");
+	await AddFile(zip, "img/faces/hero/34.png");
+	await AddFile(zip, "img/faces/hero/35.png");
+	await AddFile(zip, "img/faces/hero/36.png");
+	await AddFile(zip, "img/faces/hero/37.png");
+	await AddFile(zip, "img/faces/hero/38.png");
+	await AddFile(zip, "img/faces/hero/39.png");
+	await AddFile(zip, "img/faces/hero/4.png");
+	await AddFile(zip, "img/faces/hero/40.png");
+	await AddFile(zip, "img/faces/hero/41.png");
+	await AddFile(zip, "img/faces/hero/42.png");
+	await AddFile(zip, "img/faces/hero/43.png");
+	await AddFile(zip, "img/faces/hero/5.png");
+	await AddFile(zip, "img/faces/hero/6.png");
+	await AddFile(zip, "img/faces/hero/7.png");
+	await AddFile(zip, "img/faces/hero/8.png");
+	await AddFile(zip, "img/faces/hero/9.png");
+	zip.folder("img/faces/kel");
+	await AddFile(zip, "img/faces/kel/0.png");
+	await AddFile(zip, "img/faces/kel/1.png");
+	await AddFile(zip, "img/faces/kel/10.png");
+	await AddFile(zip, "img/faces/kel/11.png");
+	await AddFile(zip, "img/faces/kel/12.png");
+	await AddFile(zip, "img/faces/kel/13.png");
+	await AddFile(zip, "img/faces/kel/14.png");
+	await AddFile(zip, "img/faces/kel/15.png");
+	await AddFile(zip, "img/faces/kel/16.png");
+	await AddFile(zip, "img/faces/kel/17.png");
+	await AddFile(zip, "img/faces/kel/18.png");
+	await AddFile(zip, "img/faces/kel/19.png");
+	await AddFile(zip, "img/faces/kel/2.png");
+	await AddFile(zip, "img/faces/kel/20.png");
+	await AddFile(zip, "img/faces/kel/21.png");
+	await AddFile(zip, "img/faces/kel/22.png");
+	await AddFile(zip, "img/faces/kel/23.png");
+	await AddFile(zip, "img/faces/kel/24.png");
+	await AddFile(zip, "img/faces/kel/25.png");
+	await AddFile(zip, "img/faces/kel/26.png");
+	await AddFile(zip, "img/faces/kel/27.png");
+	await AddFile(zip, "img/faces/kel/28.png");
+	await AddFile(zip, "img/faces/kel/29.png");
+	await AddFile(zip, "img/faces/kel/3.png");
+	await AddFile(zip, "img/faces/kel/30.png");
+	await AddFile(zip, "img/faces/kel/31.png");
+	await AddFile(zip, "img/faces/kel/32.png");
+	await AddFile(zip, "img/faces/kel/33.png");
+	await AddFile(zip, "img/faces/kel/34.png");
+	await AddFile(zip, "img/faces/kel/35.png");
+	await AddFile(zip, "img/faces/kel/36.png");
+	await AddFile(zip, "img/faces/kel/37.png");
+	await AddFile(zip, "img/faces/kel/38.png");
+	await AddFile(zip, "img/faces/kel/39.png");
+	await AddFile(zip, "img/faces/kel/4.png");
+	await AddFile(zip, "img/faces/kel/40.png");
+	await AddFile(zip, "img/faces/kel/41.png");
+	await AddFile(zip, "img/faces/kel/42.png");
+	await AddFile(zip, "img/faces/kel/43.png");
+	await AddFile(zip, "img/faces/kel/44.png");
+	await AddFile(zip, "img/faces/kel/45.png");
+	await AddFile(zip, "img/faces/kel/46.png");
+	await AddFile(zip, "img/faces/kel/5.png");
+	await AddFile(zip, "img/faces/kel/6.png");
+	await AddFile(zip, "img/faces/kel/7.png");
+	await AddFile(zip, "img/faces/kel/8.png");
+	await AddFile(zip, "img/faces/kel/9.png");
+	zip.folder("img/faces/mari");
+	await AddFile(zip, "img/faces/mari/0.png");
+	await AddFile(zip, "img/faces/mari/1.png");
+	await AddFile(zip, "img/faces/mari/10.png");
+	await AddFile(zip, "img/faces/mari/11.png");
+	await AddFile(zip, "img/faces/mari/12.png");
+	await AddFile(zip, "img/faces/mari/13.png");
+	await AddFile(zip, "img/faces/mari/14.png");
+	await AddFile(zip, "img/faces/mari/15.png");
+	await AddFile(zip, "img/faces/mari/16.png");
+	await AddFile(zip, "img/faces/mari/17.png");
+	await AddFile(zip, "img/faces/mari/2.png");
+	await AddFile(zip, "img/faces/mari/3.png");
+	await AddFile(zip, "img/faces/mari/4.png");
+	await AddFile(zip, "img/faces/mari/5.png");
+	await AddFile(zip, "img/faces/mari/6.png");
+	await AddFile(zip, "img/faces/mari/7.png");
+	await AddFile(zip, "img/faces/mari/8.png");
+	await AddFile(zip, "img/faces/mari/9.png");
+	await AddFile(zip, "img/faces/omori.png");
+	await AddFile(zip, "img/faces/player_memory.png");
+	zip.folder("img/faces/something");
+	await AddFile(zip, "img/faces/something/0.png");
+	await AddFile(zip, "img/faces/something/1.png");
+	await AddFile(zip, "img/faces/stranger.png");
+	await AddFile(zip, "index.html");
+	await AddFile(zip, "LICENSE.md");
+	await AddFile(zip, "README.md");
+	await AddFile(zip, "ref.png");
+	await AddFile(zip, "styles.css");
+	const pluginRequest = await fetch("/js-plugins/DialogueSystem.js");
+	const pluginData = await pluginRequest.blob();
+	zip.file("DialogueSystem.js", pluginData);
+    
+    const blob = await zip.generateAsync({ type: "blob" });
+    saveAs(blob, "DialogueSystem.js Template - OMORI.zip");
+
+    await Loop.Delay(0.25);
+
+    donwloadBtn.setAttribute("clicked", 0);
+    donwloadBtn.textContent = "Download";
+};
+
+        </script>
+    </body>
+</html>
