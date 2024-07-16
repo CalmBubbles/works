@@ -395,10 +395,12 @@ donwloadBtn.onclick = async () => {
 	AddFile(zip, "ref.png");
 	AddFile(zip, "ref1.png");
 	AddFile(zip, "styles.css");
-	const pluginRequest = await fetch("/js-plugins/DialogueSystem.js");
-	const pluginData = await pluginRequest.blob();
-	zip.file("DialogueSystem.js", pluginData);
-	fileIndex++
+	(async () => {
+		const pluginRequest = await fetch("/js-plugins/DialogueSystem.js");
+		const pluginData = await pluginRequest.blob();
+		zip.file("DialogueSystem.js", pluginData);
+		fileIndex++
+	})();
 
 	await new Promise(resolve => Loop.Append(() => {
 		if (fileIndex === fileCount)
