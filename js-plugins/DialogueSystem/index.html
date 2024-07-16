@@ -191,6 +191,7 @@ donwloadBtn.onclick = async () => {
 
     const zip = new JSZip();
 
+    fileCount = 4;
     (async () => {
         const minRequest = await fetch("/js-plugins/DialogueSystem.js");
         const minData = await minRequest.blob();
