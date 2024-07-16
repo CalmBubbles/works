@@ -186,24 +186,24 @@ const donwloadBtn = document.querySelector("#download-btn");
 donwloadBtn.onclick = async () => {
     donwloadBtn.setAttribute("clicked", 1);
 
-    const zip = new JSZip(); 
+    const zip = new JSZip();
 
-    donwloadBtn.textContent = "Packing... (1/4)";
+    donwloadBtn.textContent = "Packaging... (1/4)";
     const minRequest = await fetch("/js-plugins/DialogueSystem.js");
     const minData = await minRequest.blob();
     zip.file("DialogueSystem.js", minData);
 
-    donwloadBtn.textContent = "Packing... (2/4)";
+    donwloadBtn.textContent = "Packaging... (2/4)";
     const rawRequest = await fetch("/js-plugins/raw/DialogueSystem.js");
     const rawData = await rawRequest.blob();
     zip.file("DialogueSystem.raw.js", rawData);
 
-    donwloadBtn.textContent = "Packing... (3/4)";
+    donwloadBtn.textContent = "Packaging... (3/4)";
     const licenseRequest = await fetch("/js-plugins/LICENSE.md");
     const licenseData = await licenseRequest.blob();
     zip.file("LICENSE.md", licenseData);
 
-    donwloadBtn.textContent = "Packing... (4/4)";
+    donwloadBtn.textContent = "Packaging... (4/4)";
     zip.file("README.txt", "Thanks for downloading DialogueSystem.js!\n\n\nManual:\n    https://calmbubbles.github.io/docs/js-plugins/manual/DialogueSystem\n\nScripting Reference:\n    https://calmbubbles.github.io/docs/js-plugins/reference/DialogueSystem");
 
     donwloadBtn.textContent = "Downloading...";
