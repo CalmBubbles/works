@@ -415,7 +415,6 @@ donwloadBtn.onclick = async () => {
     const blob = await zip.generateAsync({ type: "blob" });
     saveAs(blob, "DialogueSystem.js Template - OneShot.zip");
 	fileIndex = 0;
-	fileCount = 0;
 
     await Loop.Delay(0.25);
 
