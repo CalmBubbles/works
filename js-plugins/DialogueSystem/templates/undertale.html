@@ -163,12 +163,17 @@
 
 const dir = "/dialogue-templates/undertale";
 
+let fileIndex = 0;
+let fileCount = 0;
+
 async function AddFile (zip, src)
 {
     const blobRequest = await fetch(`${dir}/${src}`);
     const blobData = await blobRequest.blob();
 
     zip.file(src, blobData);
+
+	fileIndex++;
 }
 
 const donwloadBtn = document.querySelector("#download-btn");
@@ -177,65 +182,58 @@ donwloadBtn.onclick = async () => {
 
     const zip = new JSZip();
 
-    zip.folder("audio");
-	donwloadBtn.textContent = "Packaging... (1/23)";
-	await AddFile(zip, "audio/sans.wav");
-	donwloadBtn.textContent = "Packaging... (2/23)";
-	await AddFile(zip, "audio/txt.wav");
+    fileCount = 23;
+	zip.folder("audio");
+	AddFile(zip, "audio/sans.wav");
+	AddFile(zip, "audio/txt.wav");
 	zip.folder("fonts");
 	zip.folder("fonts/Comic Sans UT");
-	donwloadBtn.textContent = "Packaging... (3/23)";
-	await AddFile(zip, "fonts/Comic Sans UT/LICENSE.txt");
-	donwloadBtn.textContent = "Packaging... (4/23)";
-	await AddFile(zip, "fonts/Comic Sans UT/main.ttf");
+	AddFile(zip, "fonts/Comic Sans UT/LICENSE.txt");
+	AddFile(zip, "fonts/Comic Sans UT/main.ttf");
 	zip.folder("fonts/DTM-Mono");
-	donwloadBtn.textContent = "Packaging... (5/23)";
-	await AddFile(zip, "fonts/DTM-Mono/LICENSE.txt");
-	donwloadBtn.textContent = "Packaging... (6/23)";
-	await AddFile(zip, "fonts/DTM-Mono/main.otf");
+	AddFile(zip, "fonts/DTM-Mono/LICENSE.txt");
+	AddFile(zip, "fonts/DTM-Mono/main.otf");
 	zip.folder("img");
 	zip.folder("img/faces");
 	zip.folder("img/faces/sans");
-	donwloadBtn.textContent = "Packaging... (7/23)";
-	await AddFile(zip, "img/faces/sans/blink.png");
-	donwloadBtn.textContent = "Packaging... (8/23)";
-	await AddFile(zip, "img/faces/sans/chuckle.png");
-	donwloadBtn.textContent = "Packaging... (9/23)";
-	await AddFile(zip, "img/faces/sans/chuckle2.png");
-	donwloadBtn.textContent = "Packaging... (10/23)";
-	await AddFile(zip, "img/faces/sans/neutral.png");
-	donwloadBtn.textContent = "Packaging... (11/23)";
-	await AddFile(zip, "img/faces/sans/noeyes.png");
-	donwloadBtn.textContent = "Packaging... (12/23)";
-	await AddFile(zip, "img/faces/sans/wink.png");
-	donwloadBtn.textContent = "Packaging... (13/23)";
-	await AddFile(zip, "index.html");
-	donwloadBtn.textContent = "Packaging... (14/23)";
-	await AddFile(zip, "LICENSE.md");
-	donwloadBtn.textContent = "Packaging... (15/23)";
-	await AddFile(zip, "README.md");
-	donwloadBtn.textContent = "Packaging... (16/23)";
-	await AddFile(zip, "ref.png");
-	donwloadBtn.textContent = "Packaging... (17/23)";
-	await AddFile(zip, "ref1.png");
-	donwloadBtn.textContent = "Packaging... (18/23)";
-	await AddFile(zip, "ref2.png");
-	donwloadBtn.textContent = "Packaging... (19/23)";
-	await AddFile(zip, "ref3.png");
-	donwloadBtn.textContent = "Packaging... (20/23)";
-	await AddFile(zip, "ref4.png");
-	donwloadBtn.textContent = "Packaging... (21/23)";
-	await AddFile(zip, "ref5.png");
-	donwloadBtn.textContent = "Packaging... (22/23)";
-	await AddFile(zip, "styles.css");
-	donwloadBtn.textContent = "Packaging... (23/23)";
-	const pluginRequest = await fetch("/js-plugins/DialogueSystem.js");
-	const pluginData = await pluginRequest.blob();
-	zip.file("DialogueSystem.js", pluginData);
+	AddFile(zip, "img/faces/sans/blink.png");
+	AddFile(zip, "img/faces/sans/chuckle.png");
+	AddFile(zip, "img/faces/sans/chuckle2.png");
+	AddFile(zip, "img/faces/sans/neutral.png");
+	AddFile(zip, "img/faces/sans/noeyes.png");
+	AddFile(zip, "img/faces/sans/wink.png");
+	AddFile(zip, "index.html");
+	AddFile(zip, "LICENSE.md");
+	AddFile(zip, "README.md");
+	AddFile(zip, "ref.png");
+	AddFile(zip, "ref1.png");
+	AddFile(zip, "ref2.png");
+	AddFile(zip, "ref3.png");
+	AddFile(zip, "ref4.png");
+	AddFile(zip, "ref5.png");
+	AddFile(zip, "styles.css");
+	(async () => {
+		const pluginRequest = await fetch("/js-plugins/DialogueSystem.js");
+		const pluginData = await pluginRequest.blob();
+		zip.file("DialogueSystem.js", pluginData);
+		fileIndex++
+	})();
+
+    await new Promise(resolve => Loop.Append(() => {
+		if (fileIndex === fileCount)
+		{
+			resolve();
+
+			return;
+		}
+
+		donwloadBtn.textContent = `Packaging... (${fileIndex + 1}/${fileCount})`;
+	}, null, () => fileIndex === fileCount));
 
     donwloadBtn.textContent = "Downloading...";
     const blob = await zip.generateAsync({ type: "blob" });
     saveAs(blob, "DialogueSystem.js Template - UNDERTALE.zip");
+	fileIndex = 0;
 
     await Loop.Delay(0.25);
 

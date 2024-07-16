@@ -182,33 +182,53 @@ for (let i = 0; i < funnyText.length; i++) {
     textAnim.append(span);
 }
 
+let fileIndex = 0;
+let fileCount = 0;
+
 const donwloadBtn = document.querySelector("#download-btn");
 donwloadBtn.onclick = async () => {
     donwloadBtn.setAttribute("clicked", 1);
 
     const zip = new JSZip();
 
-    donwloadBtn.textContent = "Packaging... (1/4)";
-    const minRequest = await fetch("/js-plugins/DialogueSystem.js");
-    const minData = await minRequest.blob();
-    zip.file("DialogueSystem.js", minData);
+    (async () => {
+        const minRequest = await fetch("/js-plugins/DialogueSystem.js");
+        const minData = await minRequest.blob();
+        zip.file("DialogueSystem.js", minData);
+        fileIndex++;
+    })();
+    (async () => {
+        const rawRequest = await fetch("/js-plugins/raw/DialogueSystem.js");
+        const rawData = await rawRequest.blob();
+        zip.file("DialogueSystem.raw.js", rawData);
+        fileIndex++;
+    })();
+    (async () => {
+        const licenseRequest = await fetch("/js-plugins/LICENSE.md");
+        const licenseData = await licenseRequest.blob();
+        zip.file("LICENSE.md", licenseData);
+        fileIndex++;
+    })();
+    (async () => {
+        zip.file("README.txt", "Thanks for downloading DialogueSystem.js!\n\n\nManual:\n    https://calmbubbles.github.io/docs/js-plugins/manual/DialogueSystem\n\nScripting Reference:\n    https://calmbubbles.github.io/docs/js-plugins/reference/DialogueSystem");
+        fileIndex++;
+    })();
 
-    donwloadBtn.textContent = "Packaging... (2/4)";
-    const rawRequest = await fetch("/js-plugins/raw/DialogueSystem.js");
-    const rawData = await rawRequest.blob();
-    zip.file("DialogueSystem.raw.js", rawData);
+    await new Promise(resolve => Loop.Append(() => {
+		if (fileIndex === fileCount)
+		{
+			resolve();
 
-    donwloadBtn.textContent = "Packaging... (3/4)";
-    const licenseRequest = await fetch("/js-plugins/LICENSE.md");
-    const licenseData = await licenseRequest.blob();
-    zip.file("LICENSE.md", licenseData);
+			return;
+		}
 
-    donwloadBtn.textContent = "Packaging... (4/4)";
-    zip.file("README.txt", "Thanks for downloading DialogueSystem.js!\n\n\nManual:\n    https://calmbubbles.github.io/docs/js-plugins/manual/DialogueSystem\n\nScripting Reference:\n    https://calmbubbles.github.io/docs/js-plugins/reference/DialogueSystem");
+		donwloadBtn.textContent = `Packaging... (${fileIndex + 1}/${fileCount})`;
+	}, null, () => fileIndex === fileCount));
 
     donwloadBtn.textContent = "Downloading...";
     const blob = await zip.generateAsync({ type: "blob" });
     saveAs(blob, "DialogueSystem.js.zip");
+	fileIndex = 0;
 
     await Loop.Delay(0.25);
 

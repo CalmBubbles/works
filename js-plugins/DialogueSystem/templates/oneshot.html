@@ -403,12 +403,8 @@ donwloadBtn.onclick = async () => {
 	})();
 
 	await new Promise(resolve => Loop.Append(() => {
-		console.log(fileIndex);
-
 		if (fileIndex === fileCount)
 		{
-			console.log("aaaaaaaaaaa");
-
 			resolve();
 
 			return;
