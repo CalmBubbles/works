@@ -159,12 +159,12 @@ let fileCount = 0;
 
 async function AddFile (zip, src)
 {
-	fileIndex++;
-
     const blobRequest = await fetch(`${dir}/${src}`);
     const blobData = await blobRequest.blob();
 
     zip.file(src, blobData);
+
+	fileIndex++;
 }
 
 const donwloadBtn = document.querySelector("#download-btn");
