@@ -186,7 +186,7 @@ const donwloadBtn = document.querySelector("#download-btn");
 donwloadBtn.onclick = async () => {
     donwloadBtn.setAttribute("clicked", 1);
 
-    const zip = new JSZip();
+    const zip = new JSZip(); 
 
     donwloadBtn.textContent = "Packing... (1/4)";
     const minRequest = await fetch("/js-plugins/DialogueSystem.js");
